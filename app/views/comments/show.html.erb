@@ -1,0 +1,9 @@
+<table>
+ 	<tr>
+ 		<th>Comments:</th>
+ 		<td><% @comments.each do |comment| %></td>
+ 		<%# if current_user.id == post.user_id %><br>
+ 		<td><%= comment.content %></td>
+ 		<%end%>
+ 	</tr>
+</table>

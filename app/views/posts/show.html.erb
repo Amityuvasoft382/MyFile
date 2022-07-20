@@ -1,0 +1,32 @@
+<h1>Hello show</h1>
+<table>
+	<tr>
+		<th>Title:</th>
+		<th>Text:</th>
+	</tr>
+
+	<tr>
+		<td><%= @post.title%></td>
+		<td><%= @post.text%></td>
+	</tr>
+</table>
+
+
+<%= render 'comments/form' %>
+<%#debugger%>
+<%#= render  "comments/form", comment: @comment %>
+<%#= link_to "show comments", post_comments_path(@post)%>
+
+
+<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+	<% if pre_like %>
+   <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+ <% else %>
+  <%= button_to 'Like', post_likes_path(@post), method: :post %>
+ <% end %>
+  	<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+  	<%#= render "show", post: @post%>
+
+<%= link_to "Back", :back%>
+<%= link_to "Way Home", root_path %>

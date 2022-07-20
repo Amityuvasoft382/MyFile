@@ -1,0 +1,18 @@
+<fieldset>
+    <%= form_for(@post)  do |form| %>    
+    <div>
+        <%= form.label :title %><br>
+        <%= form.text_field :title, placeholder: "Post Title" %>
+    </div>
+    <div>
+        <%= form.label :text %><br>
+        <%= form.text_area :text, placeholder: "Text" %>
+    </div>
+    <div>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+    <%end%>
+</fieldset>

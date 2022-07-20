@@ -1,0 +1,17 @@
+<h1>Hello</h1>
+<center><h3>Postlikes</h3></center>
+<fieldset>
+	<center>
+	  <% if user_signed_in? %>
+	  <% current_user.email%>
+	  <%= link_to "Show Post", posts_path %>		
+		{<%= link_to 'Posts', posts_path %>}
+		{<%= link_to "Edit", edit_user_registration_path %>}
+		{<%= link_to "Logout", destroy_user_session_path, method: :delete %>}
+	  <%else%>
+		<%= link_to "Sign In",new_user_session_path %>
+		||
+		<%= link_to "New User", new_user_registration_path %>
+	  <%end%>
+	</center>
+</fieldset>

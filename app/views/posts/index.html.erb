@@ -1,0 +1,43 @@
+<%= link_to "Home", root_path %>
+<center><%= link_to "New Post", new_post_path %></center>
+
+<fieldset>
+<table>
+	<tr>
+		<th>Title:</th>
+		<th>Text:</th>
+	</tr>
+</table>
+<br>
+<% @posts.each do |post| %>
+	<% if current_user.id == post.user_id %>
+	<tr><%= post.title %></tr>
+	<tr><%= post.text %></tr>
+	<br>
+
+	<%= link_to 'Update', edit_post_path(post) %>
+	<%= link_to 'Delete', post, method: :delete, data:{ confirm: "You sure?" } %>
+	<br>
+  <%end%>
+<%end%>
+<%#end%>
+
+	<table>
+ 	<tr>
+ 		<th><b>Comments:</th><br
+ 		<td><% @comments.each do |comment| %></td>
+ 		<%# if current_user.id == post.user_id %>
+ 		<td><%= comment.content %></td>
+ 		<br>
+ 		<%#end%>
+ 		<%end%>
+ 	</tr>
+</table>
+</fieldset>
+
+
+
+	
+
+
+
